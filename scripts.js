@@ -1,10 +1,11 @@
 var request = new XMLHttpRequest();
+var weatherKey = config.weatherKey;
 var temp = 0;
 var cTemp = 0;
 var fTemp = 0;
 var tempDiv = document.getElementById('temp');
 
-request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=portland&APPID=ff3c9f4d39e7e445f23cfbb2e3ba1f27', true);
+request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=portland&APPID=' + weatherKey, true);
 
 request.onload = function(temp) {
   var data = JSON.parse(this.response);
