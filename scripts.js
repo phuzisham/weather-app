@@ -13,7 +13,7 @@ request.onload = function(temp) {
   cTemp = cTempConversion(temp);
   fTemp = fTempConversion(cTemp);
 
-  tempDiv.innerHTML = cTemp;
+  tempDiv.innerHTML = cTemp + ' Degrees Celcius.';
 }
 
 var cTempConversion = function(temp) {
@@ -25,10 +25,10 @@ var fTempConversion = function(temp) {
 }
 
 var changeUnits = function(temp) {
-  if (tempDiv.innerHTML == cTemp) {
-    tempDiv.innerHTML = fTemp;
+  if (tempDiv.innerHTML == cTemp + ' Degrees Celcius.') {
+    tempDiv.innerHTML = fTemp + ' Degrees Fahrenheit.';
   } else {
-      tempDiv.innerHTML = cTemp;
+      tempDiv.innerHTML = cTemp + ' Degrees Celcius.';
   }
 }
 
