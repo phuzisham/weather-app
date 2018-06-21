@@ -1,7 +1,7 @@
 let request = new XMLHttpRequest();
 let weatherKey = config.weatherKey;
 let temp, cTemp, fTemp, lat, long;
-let tempDiv = document.getElementById('temp');
+let tempDisplay = document.getElementById('temp');
 let locationDiv = document.getElementById('location');
 
 function getLocation() {
@@ -18,10 +18,6 @@ function getLocation() {
   }
 }
 
-function locationError() {
-  console.log('ERROR');
-}
-
 function getWeather() {
   request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=' + weatherKey, true);
 
@@ -34,9 +30,15 @@ function getWeather() {
     city = data.name;
 
     locationDiv.innerHTML = city + ' Weather';
-    tempDiv.innerHTML = cTemp + ' Degrees Celcius.';
+    tempDisplay.innerHTML = cTemp + ' Degrees Celcius.';
+    $("#greetingDiv").hide();
+    $("#tempDiv").show();
   }
   request.send();
+}
+
+function locationError() {
+  console.log('ERROR');
 }
 
 function cTempConversion(temp) {
@@ -48,10 +50,10 @@ function fTempConversion(temp) {
 }
 
 function changeUnits() {
-  if (tempDiv.innerHTML == cTemp + ' Degrees Celcius.') {
-    tempDiv.innerHTML = fTemp + ' Degrees Fahrenheit.';
+  if (tempDisplay.innerHTML == cTemp + ' Degrees Celcius.') {
+    tempDisplay.innerHTML = fTemp + ' Degrees Fahrenheit.';
   } else {
-      tempDiv.innerHTML = cTemp + ' Degrees Celcius.';
+      tempDisplay.innerHTML = cTemp + ' Degrees Celcius.';
   }
 }
 

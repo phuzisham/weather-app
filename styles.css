@@ -1,3 +1,12 @@
-#tempBox {
+body {
+  padding: 34px;
+}
+
+#greetingDiv {
   text-align: center;
+}
+#tempDiv {
+  margin: auto;
+  max-width: 960px;
+  display: none;
 }
