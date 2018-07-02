@@ -32,7 +32,7 @@ function getWeather() {
     description = data.weather[0].description;
 
     locationDiv.innerHTML = city + ' Weather';
-    tempDisplay.innerHTML = cTemp + ' °C';
+    tempDisplay.innerHTML = fTemp + ' °F';
     descriptionDiv.innerHTML = description;
     iconDiv.style.backgroundImage = "url('http://openweathermap.org/img/w/" + icon + ".png')";
     $("#greetingDiv").hide();
@@ -45,12 +45,16 @@ function locationError() {
   console.log('ERROR');
 }
 
-function changeUnits() {
-  if (tempDisplay.innerHTML == cTemp + ' °C') {
-    tempDisplay.innerHTML = fTemp + ' °F';
+$("#toggle").change(function () {
+  if ($('input[name="toggle"]').is(':checked')) {
+    tempDisplay.innerHTML = cTemp + ' °C';
   } else {
-      tempDisplay.innerHTML = cTemp + ' °C';
+    tempDisplay.innerHTML = fTemp + ' °F';
   }
-}
+});
+
+$('#myLocation').click(function () {
+  getLocation();
+});
 
 getLocation();
