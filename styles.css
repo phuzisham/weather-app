@@ -5,8 +5,20 @@ body {
 #greetingDiv {
   text-align: center;
 }
+
 #tempDiv {
   margin: auto;
   max-width: 960px;
   display: none;
+}
+
+#icon {
+  width: 75px;
+  height: 75px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#temp {
+  display: inline;
 }

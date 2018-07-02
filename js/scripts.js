@@ -1,16 +1,16 @@
 let request = new XMLHttpRequest();
 let weatherKey = config.weatherKey;
-let temp, cTemp, fTemp, lat, long;
+let temp, cTemp, fTemp, lat, long, city, icon, description;
 let tempDisplay = document.getElementById('temp');
 let locationDiv = document.getElementById('location');
+let iconDiv = document.getElementById('icon');
+let descriptionDiv = document.getElementById('description');
 
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       lat = position.coords.latitude.toFixed(3);
       long = position.coords.longitude.toFixed(3);
-      console.log(lat);
-      console.log(long);
       getWeather();
     });
   } else {
@@ -23,14 +23,18 @@ function getWeather() {
 
   request.onload = function() {
     let data = JSON.parse(this.response);
-    console.log(data);
+
     temp = data.main.temp;
-    cTemp = cTempConversion(temp);
-    fTemp = fTempConversion(cTemp);
+    cTemp = (temp - 273).toFixed(0);
+    fTemp = (9/5 * temp - 459.67).toFixed(0);
     city = data.name;
+    icon = data.weather[0].icon;
+    description = data.weather[0].description;
 
     locationDiv.innerHTML = city + ' Weather';
-    tempDisplay.innerHTML = cTemp + ' Degrees Celcius.';
+    tempDisplay.innerHTML = cTemp + ' °C';
+    descriptionDiv.innerHTML = description;
+    iconDiv.style.backgroundImage = "url('http://openweathermap.org/img/w/" + icon + ".png')";
     $("#greetingDiv").hide();
     $("#tempDiv").show();
   }
@@ -41,19 +45,11 @@ function locationError() {
   console.log('ERROR');
 }
 
-function cTempConversion(temp) {
-  return (temp - 273).toFixed(0);
-}
-
-function fTempConversion(temp) {
-  return (9/5 * temp + 32).toFixed(0);
-}
-
 function changeUnits() {
-  if (tempDisplay.innerHTML == cTemp + ' Degrees Celcius.') {
-    tempDisplay.innerHTML = fTemp + ' Degrees Fahrenheit.';
+  if (tempDisplay.innerHTML == cTemp + ' °C') {
+    tempDisplay.innerHTML = fTemp + ' °F';
   } else {
-      tempDisplay.innerHTML = cTemp + ' Degrees Celcius.';
+      tempDisplay.innerHTML = cTemp + ' °C';
   }
 }
 
