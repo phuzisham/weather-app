@@ -10,7 +10,12 @@
   <body>
     <div id="greetingDiv">
       <h1>What's the weather outside?</h1>
-      <button type="button" name="myLocation" id="myLocation">Check My Location</button>
+      <form class="textbox">
+        <input id="cityChoice" placeholder="city or zip">
+        <input id="cityZip" type="submit" value="Submit">
+      </form>
+      <br>
+      <button type="button" name="myLocation" id="myLocation">Use My Location</button>
     </div>
     <div id="tempDiv">
       <h1 id="location"></h1>

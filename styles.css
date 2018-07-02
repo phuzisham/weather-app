@@ -1,5 +1,8 @@
 body {
   padding: 34px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 1s ease-in-out;
 }
 
 #greetingDiv {
