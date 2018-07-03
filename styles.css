@@ -4,16 +4,30 @@ body {
   background-size: cover;
   transition: all 1s ease-in-out;
   background-image: url('images/home.jpg');
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  background-color: #9BAFC6;
+  color: white;
 }
 
 #greetingDiv {
-  text-align: center;
   width: 420px;
   margin: auto;
   padding: 20px;
-  background-color: rgba(200, 116, 64, 0.9);
+  padding-bottom: 32px !important;
+  background-color: rgba(200, 116, 64, 0.85);
   color: white;
   border-radius: 14px;
+}
+
+#greetingHeader {
+  text-align: center;
+}
+
+#myLocation {
+  margin-top: 10px;
 }
 
 #tempDiv {

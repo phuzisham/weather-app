@@ -2,20 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Local Weather App</title>
+    <title>Weather Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
   </head>
   <body>
     <div id="greetingDiv">
-      <h1>What's the weather outside?</h1>
-      <form class="textbox">
-        <input id="cityChoice" placeholder="city or zip">
-        <input id="cityZip" type="submit" value="Submit">
-      </form>
+      <div id="greetingHeader">
+        <h1>Check the weather!</h1>
+      </div>
       <br>
-      <button type="button" name="myLocation" id="myLocation">Use My Location</button>
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="textarea" id="cityChoice" class="form-control mr-sm-2" placeholder="city or zip">
+          <button id="cityZip" class="btn" type="submit">Submit</button>
+        </div>
+      </form>
+      <button type="button" name="myLocation" id="myLocation" class="btn">Use My Location</button>
     </div>
     <div id="tempDiv">
       <h1 id="location"></h1>
