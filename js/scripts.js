@@ -1,7 +1,7 @@
 let temp, cTemp, fTemp, lat, long, city, icon, description, cityZip;
 
 let request = new XMLHttpRequest();
-let weatherKey = config.weatherKey;
+let weatherKey = 'ff3c9f4d39e7e445f23cfbb2e3ba1f27';
 let tempDisplay = document.getElementById('temp');
 let locationDiv = document.getElementById('location');
 let iconDiv = document.getElementById('icon');
