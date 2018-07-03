@@ -38,14 +38,14 @@ function getWeather() {
     iconDiv.style.backgroundImage = "url('http://openweathermap.org/img/w/" + icon + ".png')";
     $("#greetingDiv").hide();
     $("#tempDiv").show();
-    
+
     changeBackground(description);
   }
   request.send();
 }
 
 function locationError() {
-  console.log('ERROR');
+  console.log('LOCATION ERROR');
 }
 
 $("#toggle").change(function () {
@@ -78,6 +78,8 @@ $('#cityZip').click(function () {
     iconDiv.style.backgroundImage = "url('http://openweathermap.org/img/w/" + icon + ".png')";
     $("#greetingDiv").hide();
     $("#tempDiv").show();
+
+    changeBackground(description);
   }
   request.send();
 });
@@ -88,34 +90,25 @@ $('#myLocation').click(function () {
 
 function changeBackground(description) {
   if (description.includes('cloud')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
+    document.body.style.backgroundImage = "url('./images/cloud.jpg')";
   }
-  if (description.includes('rain')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/110874/pexels-photo-110874.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
+  if (description.includes('rain', 'drizzle')) {
+    document.body.style.backgroundImage = "url('./images/rain.jpg')";
   }
-  if (description.includes('drizzle')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
-  }
-  if (description.includes('sun')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?w=1260&h=750&auto=compress&cs=tinysrgb')";
-  }
-  if (description.includes('clear')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
+  if (description.includes('sun', 'clear')) {
+    document.body.style.backgroundImage = "url('./images/sun.jpg')";
   }
   if (description.includes('snow')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/60561/winter-snow-nature-60561.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
+    document.body.style.backgroundImage = "url('./images/snow.jpg')";
   }
-  if (description.includes('smoke')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/345043/pexels-photo-345043.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
+  if (description.includes('smoke', 'haze')) {
+    document.body.style.backgroundImage = "url('./images/smoke.jpg')";
   }
   if (description.includes('storm')) {
-    document.body.style.backgroundImage = "url('https://images.pexels.com/photos/371838/pexels-photo-371838.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')";
-  }
-  if (description.includes('haze')) {
-    document.body.style.backgroundImage = "url('http://img.wennermedia.com/social/gettyimages-73909114-ea10777f-1b8d-4abf-854b-aa3db47b294f.jpg')";
+    document.body.style.backgroundImage = "url('./images/storm.jpg')";
   }
   if (description.includes('mist')) {
-    document.body.style.backgroundImage = "url('https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg')";
+    document.body.style.backgroundImage = "url('./images/mist.jpg')";
   }
 };
 

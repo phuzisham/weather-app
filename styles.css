@@ -1,12 +1,19 @@
 body {
-  padding: 34px;
+  padding: 86px;
   background-repeat: no-repeat;
   background-size: cover;
   transition: all 1s ease-in-out;
+  background-image: url('images/home.jpg');
 }
 
 #greetingDiv {
   text-align: center;
+  width: 420px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(200, 116, 64, 0.9);
+  color: white;
+  border-radius: 14px;
 }
 
 #tempDiv {
