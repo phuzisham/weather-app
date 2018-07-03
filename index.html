@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="greetingDiv">
-      <div id="greetingHeader">
+      <div class="centered">
         <h1>Check the weather!</h1>
       </div>
       <br>
@@ -24,15 +24,26 @@
       <button type="button" name="myLocation" id="myLocation" class="btn">Use My Location</button>
     </div>
     <div id="tempDiv">
-      <h1 id="location"></h1>
-      <p id="temp"></p>
-      <p id="description"></p>
-      <div id="icon"></div>
-      <label class="switch">
-        <input id="toggle" type="checkbox" name="toggle">
-        <span class="slider round"></span>
-      </label>
-      <p>°F or °C </p>
+      <div class="centered">
+        <h1 id="location"></h1>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          <div id="icon"></div>
+        </div>
+        <div class="col-md-6">
+          <p id="temp"></p>
+          <p id="description"></p>
+        </div>
+        <div class="col-md-3">
+          <label class="switch">
+            <input id="toggle" type="checkbox" name="toggle">
+            <span class="slider round"></span>
+          </label>
+          <p>°F or °C </p>
+        </div>
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="js/scripts.js"></script>

@@ -22,7 +22,7 @@ button {
   border-radius: 14px;
 }
 
-#greetingHeader {
+.centered {
   text-align: center;
 }
 
@@ -31,8 +31,13 @@ button {
 }
 
 #tempDiv {
+  width: 420px;
   margin: auto;
-  max-width: 960px;
+  padding: 20px;
+  padding-bottom: 32px !important;
+  background-color: rgba(200, 116, 64, 0.85);
+  color: white;
+  border-radius: 14px;
   display: none;
 }
 
