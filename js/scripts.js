@@ -56,7 +56,7 @@ $("#toggle").change(function () {
   }
 });
 
-$('#cityZip').click(function () {
+$('#cityZip').click(function (event) {
   event.preventDefault();
   cityZip = $('#cityChoice').val();
 
@@ -78,6 +78,32 @@ $('#cityZip').click(function () {
     iconDiv.style.backgroundImage = "url('http://openweathermap.org/img/w/" + icon + ".png')";
     $("#greetingDiv").hide();
     $("#tempDiv").show();
+
+    changeBackground(description);
+  }
+  request.send();
+});
+
+$('#cityZip2').click(function (event) {
+  event.preventDefault();
+  cityZip = $('#cityChoice2').val();
+
+  request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + cityZip + ',us' + '&APPID=' + weatherKey, true);
+
+  request.onload = function() {
+    let data = JSON.parse(this.response);
+
+    temp = data.main.temp;
+    cTemp = (temp - 273).toFixed(0);
+    fTemp = (9/5 * temp - 459.67).toFixed(0);
+    city = data.name;
+    icon = data.weather[0].icon;
+    description = data.weather[0].description;
+
+    locationDiv.innerHTML = city + ' Weather';
+    tempDisplay.innerHTML = fTemp + ' °F';
+    descriptionDiv.innerHTML = description;
+    iconDiv.style.backgroundImage = "url('http://openweathermap.org/img/w/" + icon + ".png')";
 
     changeBackground(description);
   }
