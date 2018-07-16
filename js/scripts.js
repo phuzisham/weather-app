@@ -118,16 +118,25 @@ function changeBackground(description) {
   if (description.includes('cloud')) {
     document.body.style.backgroundImage = "url('./images/cloud.jpg')";
   }
-  if (description.includes('rain', 'drizzle')) {
+  if (description.includes('rain')) {
     document.body.style.backgroundImage = "url('./images/rain.jpg')";
   }
-  if (description.includes('sun', 'clear')) {
+  if (description.includes('drizzle')) {
+    document.body.style.backgroundImage = "url('./images/rain.jpg')";
+  }
+  if (description.includes('sun')) {
+    document.body.style.backgroundImage = "url('./images/sun.jpg')";
+  }
+  if (description.includes('clear')) {
     document.body.style.backgroundImage = "url('./images/sun.jpg')";
   }
   if (description.includes('snow')) {
     document.body.style.backgroundImage = "url('./images/snow.jpg')";
   }
-  if (description.includes('smoke', 'haze')) {
+  if (description.includes('smoke')) {
+    document.body.style.backgroundImage = "url('./images/smoke.jpg')";
+  }
+  if (description.includes('haze')) {
     document.body.style.backgroundImage = "url('./images/smoke.jpg')";
   }
   if (description.includes('storm')) {
