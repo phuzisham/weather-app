@@ -1,11 +1,11 @@
 let temp, cTemp, fTemp, lat, long, city, icon, description, cityZip;
 
-let request = new XMLHttpRequest();
-let weatherKey = 'ff3c9f4d39e7e445f23cfbb2e3ba1f27';
-let tempDisplay = document.getElementById('temp');
-let locationDiv = document.getElementById('location');
-let iconDiv = document.getElementById('icon');
-let descriptionDiv = document.getElementById('description');
+const request = new XMLHttpRequest();
+const weatherKey = 'ff3c9f4d39e7e445f23cfbb2e3ba1f27';
+const tempDisplay = document.getElementById('temp');
+const locationDiv = document.getElementById('location');
+const iconDiv = document.getElementById('icon');
+const descriptionDiv = document.getElementById('description');
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -23,7 +23,7 @@ function getWeather() {
   request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=' + weatherKey, true);
 
   request.onload = function() {
-    let data = JSON.parse(this.response);
+    const data = JSON.parse(this.response);
 
     temp = data.main.temp;
     cTemp = (temp - 273).toFixed(0);
@@ -91,7 +91,7 @@ $('#cityZip2').click(function (event) {
   request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + cityZip + ',us' + '&APPID=' + weatherKey, true);
 
   request.onload = function() {
-    let data = JSON.parse(this.response);
+    const data = JSON.parse(this.response);
 
     temp = data.main.temp;
     cTemp = (temp - 273).toFixed(0);
